@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, Container } from "react-bootstrap";
+import Test from './Test';
 import clock from "../img/clock_icon.png";
 import setting from "../img/settings_icon.png";
 import moon from "../img/moon_icon.png";
@@ -37,6 +38,7 @@ export default class HomePage extends Component {
             </a>
           </Navbar.Collapse>
         </Navbar>
+        <Test nightmode={this.state.nightmode}/>
       </div>
     );
   }
