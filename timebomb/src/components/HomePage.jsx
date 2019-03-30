@@ -57,9 +57,15 @@ export default class HomePage extends Component {
       <div className={this.state.nightmode ? "dark home" : "light home"} >
         <Navbar transparent fixed="top" expand="lg">
           <Navbar.Collapse className="justify-content-end">
+            
+            {this.state.page === "home" ? 
             <a>
               <img className="small-icon" onClick={this.changePage.bind(this, "clock")} src={this.state.nightmode ? clock : clock_d} alt="clock" />
+            </a> :
+            <a>
+              <img className="small-icon" onClick={this.changePage.bind(this, "home")} src={this.state.nightmode ? back : back_d} alt="back" /> 
             </a>
+          }
             <img
               className="small-icon"
               src={this.state.nightmode ? moon : moon_d}
