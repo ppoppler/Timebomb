@@ -8,7 +8,8 @@ import Countdown from './Countdown';
 export default class CountdownGrid extends Component{
     render(){
         return(
-
+            <div>
+            </div>
         );
     }
 }
