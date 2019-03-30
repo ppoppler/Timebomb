@@ -7,7 +7,7 @@ export default class Countdown extends Component {
     render(){
         return(
             <div>
-
+                <p>Title: {this.props.title}</p>
             </div>
         )
     }

@@ -8,7 +8,7 @@ import Countdown from './Countdown';
 export default class CountdownGrid extends Component{
     render(){
         return(
-
+            <Countdown title="beachhacks"/>
         );
     }
 }
