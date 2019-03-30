@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Navbar, Container } from "react-bootstrap";
-import clock from "./img/clock_icon.png";
-import setting from "./img/settings_icon.png";
+import clock from "../img/clock_icon.png";
+import setting from "../img/settings_icon.png";
+import moon from "../img/moon_icon.png"
 
 export default class HomePage extends Component {
   render() {
@@ -10,6 +11,9 @@ export default class HomePage extends Component {
         <Navbar.Collapse className="justify-content-end">
           <a href="add_clock">
             <img className="small-icon" src={clock} />
+          </a>
+          <a>
+              <img className="small-icon" src={moon} />
           </a>
           <a href="settings">
             <img className="small-icon" src={setting} />
