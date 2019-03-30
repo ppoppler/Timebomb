@@ -63,16 +63,16 @@ export default class Countdown extends Component {
             if (days > 1) {
                 timeLeft = '${days} days | ${hours} hours | ${minutes} minutes | ${seconds} seconds';
             } else if (hours > 1) {
-                timeleft = '${hours} hours | ${minutes} minutes | ${seconds} seconds';
+                timeLeft = '${hours} hours | ${minutes} minutes | ${seconds} seconds';
             } else if (minutes > 1) {
-                timeleft = '${minutes} minutes | ${seconds} seconds';
+                timeLeft = '${minutes} minutes | ${seconds} seconds';
             } else {
-                timeleft = '${seconds} seconds';
+                timeLeft = '${seconds} seconds';
             }
 
-            if (d1 < d2) {
-                //countdown over
-            }
+            // if (d1 < d2) {
+            //     //countdown over
+            // }
         }
     }
     
@@ -80,12 +80,7 @@ export default class Countdown extends Component {
     render(){
         return(
             <div>
-<<<<<<< HEAD:timebomb/src/Countdown.jsx
-                
-
-=======
                 <p>Title: {this.props.title}</p>
->>>>>>> 24d0d0fc70c1e77301c912f1f73b820d370f5a26:timebomb/src/components/Countdown.jsx
             </div>
         )
     }

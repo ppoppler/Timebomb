@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 import { Navbar, Container } from "react-bootstrap";
 import Test from './Test';
+import CountdownGrid from './CountdownGrid';
 import clock from "../img/clock_icon.png";
 import setting from "../img/settings_icon.png";
 import moon from "../img/moon_icon.png";
 import clock_d from "../img/clock_icon_d.png"
 import setting_d from "../img/settings_icon_d.png"
 import moon_d from "../img/moon_icon_d.png";
+import back from "../img/back_icon.png";
+import back_d from "../img/back_icon_d.png";
 
 export default class HomePage extends Component {
   state = {
-    nightmode: true
+    nightmode: true,
+    page: "home",
   };
 
   toggleClass() {
@@ -19,13 +23,42 @@ export default class HomePage extends Component {
     console.log(this.state.nightmode);
   }
 
+  renderPage(){
+    console.log(this.state.page);
+    switch(this.state.page){
+      case "home":
+        return <Test nightmode={this.state.nightmode}/>;
+      case "countdownGrid":
+        return <CountdownGrid />;
+      default:
+        return <Test nightmode={this.state.nightmode}/>;
+    }
+  }
+
+  changePage(icon){
+    switch(icon){
+      case "clock":
+        this.setState({page: "countdownGrid"});
+        break;
+      case "settings": 
+        this.setState({page: "settings"});
+        break;
+      case "back":
+        this.setState({page: "home"});
+        break;
+      default:
+        this.setState({page: "home"});
+        break;
+    }
+  }
+
   render() {
     return (
       <div className={this.state.nightmode ? "dark home" : "light home"} >
         <Navbar transparent fixed="top" expand="lg">
           <Navbar.Collapse className="justify-content-end">
-            <a href="add_clock">
-              <img className="small-icon" src={this.state.nightmode ? clock : clock_d} alt="clock" />
+            <a>
+              <img className="small-icon" onClick={this.changePage.bind(this, "clock")} src={this.state.nightmode ? clock : clock_d} alt="clock" />
             </a>
             <img
               className="small-icon"
@@ -33,12 +66,12 @@ export default class HomePage extends Component {
               onClick={this.toggleClass.bind(this)}
               alt="moon"
             />
-            <a href="settings">
+            <a>
               <img className="small-icon" src={this.state.nightmode ? setting : setting_d} alt="setting" />
             </a>
           </Navbar.Collapse>
         </Navbar>
-        <Test nightmode={this.state.nightmode}/>
+        {this.renderPage()}
       </div>
     );
   }
