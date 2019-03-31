@@ -18,7 +18,6 @@ export default class AddCounter extends Component {
   handleChange(date) {
     this.setState({
       endDate: date,
-      title: ""
     });
   }
 

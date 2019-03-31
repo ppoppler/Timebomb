@@ -37,10 +37,10 @@ export default class HomePage extends Component {
       case "home":
         return (
           <div>
-            <Countdown title="BeachHacks" />;
+            <Countdown title="BeachHacks" endDate={new Date("April 20, 2019 02:30:00")}/>
             <Test nightmode={this.state.nightmode} />
           </div>
-        );
+        )
       case "countdownGrid":
         return <AddCounter callback={this.receiveAddCounterCallback}/>;
       default:

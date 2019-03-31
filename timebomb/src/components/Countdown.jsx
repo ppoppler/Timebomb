@@ -28,7 +28,7 @@ export default class Countdown extends Component {
 
   getTimeLeft() {
     var date1 = new Date();
-    var date2 = new Date("April 20, 2019 02:30:00");
+    var date2 = this.props.endDate;
 
     var days = inDays(date1, date2);
     var hours = inHours(date1, date2);
