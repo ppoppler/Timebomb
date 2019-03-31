@@ -53,23 +53,33 @@
 }
 
 #eventNameForm{
-  width: 250px;
+  width: 300px;
   text-align: center;
   display: inline-block;
-  margin-top: 250px;
+  margin-top: 50px;
+  font-size: 20px;
 }
 
 #dateForm{
   border: 1px solid #ced4da !important;
+  text-align: center;
   border-radius:5px;
   padding-left: 20px;
   padding-right: 20.5px;
   padding-top: 5px;
   padding-bottom: 5px;
   margin-bottom: 10px;
+  width: 300px;
+  font-size: 20px;
 }
 
 #formButton{
-  width: 250px;
-  background-color: black;
+  width: 300px;
+  border: none;
 }
+
+.react-datepicker__close-icon::after{
+  color: black !important;
+  background-color: transparent !important;
+}
+

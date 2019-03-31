@@ -13,41 +13,31 @@ export default class Countdown extends Component {
     timeLeft: ""
   };
 
-
-
   componentDidMount(){
       setInterval(this.getTimeLeft.bind(this), 1000);
   }
 
-  /**
-   * const form = {
-   *  title: "BeachHacks",
-   *  endDate: "4934932049324"
-   * }
-   * <Countdown endDate={form.endDate} title={form.title}/>
-   *
-   */
-
   getTimeLeft() {
-    var date1 = new Date();
-    var date2 = this.props.endDate;
+
+   var date1 = new Date().getTime();
+   var date2 = new Date('April 20, 2019 14:00:00').getTime();
+
+   var t = parseInt(date2 - date1);
+   var seconds = Math.floor((t/1000) % 60);
+   var minutes = Math.floor((t/1000/60) % 60);
+   var hours = Math.floor((t/(1000*60*60)) % 24);
+   var days = Math.floor((t/(1000*60*60*24))); 
     
-
-    var days = inDays(date1, date2);
-    var hours = inHours(date1, date2);
-    var minutes = inMinutes(date1, date2);
-    var seconds = inSeconds(date1, date2);
-
     if (days > 1) {
       this.setState({
-        timeLeft: `${days} days | ${hours} hours | ${minutes} minutes | ${seconds} seconds`
+        timeLeft: `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`
       });
     } else if (hours > 1) {
       this.setState({
-        timeLeft: `${hours} hours | ${minutes} minutes | ${seconds} seconds`
+        timeLeft: `${hours} hours, ${minutes} minutes, ${seconds} seconds`
       });
     } else if (minutes > 1) {
-      this.setState({ timeLeft: `${minutes} minutes | ${seconds} seconds` });
+      this.setState({ timeLeft: `${minutes} minutes, ${seconds} seconds` });
     } else {
       this.setState({ timeLeft: `${seconds} seconds` });
     }
@@ -73,30 +63,3 @@ export default class Countdown extends Component {
     );
   }
 }
-
-
-
-function inDays(date1, date2) {
-    var t1 = date1.getTime();
-    var t2 = date2.getTime();
-
-    return parseInt((t2 - t1) / (24 * 3600 * 1000));
-  }
-  function inHours(date1, date2) {
-    var t1 = date1.getTime();
-    var t2 = date2.getTime();
-
-    return parseInt((t2 - t1) / (3600 * 1000));
-  }
-  function inMinutes(date1, date2) {
-    var t1 = date1.getTime();
-    var t2 = date2.getTime();
-
-    return parseInt((t2 - t1) / (60 * 1000));
-  }
- function inSeconds(date1, date2) {
-    var t1 = date1.getTime();
-    var t2 = date2.getTime();
-
-    return parseInt((t2 - t1) / 1000);
-  }
