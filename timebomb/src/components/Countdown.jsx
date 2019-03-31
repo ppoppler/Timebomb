@@ -20,7 +20,7 @@ export default class Countdown extends Component {
   getTimeLeft() {
 
    var date1 = new Date().getTime();
-   var date2 = new Date('April 20, 2019 14:00:00').getTime();
+   var date2 = this.props.endDate.getTime();
 
    var t = parseInt(date2 - date1);
    var seconds = Math.floor((t/1000) % 60);

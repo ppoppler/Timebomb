@@ -17,10 +17,11 @@ export default class AddCounter extends Component {
     title: ""
   };
 
-  handleChange(date) {
+  handleChange(event) {
     this.setState({
-      endDate: new Date(date)
+      endDate: event
     });
+    
   }
 
   handleText(event) {
@@ -29,7 +30,7 @@ export default class AddCounter extends Component {
 
   add(event) {
     event.preventDefault();
-    const data = { endDate: this.state.endDate, title: this.state.title };
+    const data = { endDate: new Date(this.state.endDate), title: this.state.title };
     this.props.callback(data);
   }
 
