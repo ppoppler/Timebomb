@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Navbar, Container } from "react-bootstrap";
 import Test from "./Test";
 import Countdown from "./Countdown";
+import CountdownGrid from "./CountdownGrid"
 import AddCounter from "./AddCounter";
 import clock from "../img/clock_icon.png";
 import setting from "../img/settings_icon.png";
@@ -20,8 +21,9 @@ export default class HomePage extends Component {
   };
 
   receiveAddCounterCallback(data) {
-    console.log(data.title);
-    var array = this.state.counter.push(<Countdown title={data.title} endDate={data.endDate} />);
+    console.log(data);
+    var array = this.state.counters;
+    array.push(<Countdown title={data.title} endDate={data.endDate} />);
     this.setState({counters: array});
     console.log(this.state.counters);
   }
@@ -38,12 +40,12 @@ export default class HomePage extends Component {
       case "home":
         return (
           <div>
-            <Countdown title="BeachHacks" endDate={new Date("April 20, 2019 02:30:00")} nightmode={this.state.nightmode}/>
+            <CountdownGrid nightmode={this.state.nightmode} countdowns={this.state.counters}/>
             <Test nightmode={this.state.nightmode} />
           </div>
         )
       case "countdownGrid":
-        return <AddCounter callback={this.receiveAddCounterCallback}/>;
+        return <AddCounter callback={this.receiveAddCounterCallback.bind(this)}/>;
       default:
         return <Test nightmode={this.state.nightmode} />;
     }

@@ -9,38 +9,39 @@ import "react-datepicker/dist/react-datepicker.css";
 export default class AddCounter extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      endDate: new Date()
-    };
     this.handleChange = this.handleChange.bind(this);
   }
 
+  state = {
+    endDate: new Date(),
+    title: ""
+  };
+
   handleChange(date) {
     this.setState({
-      endDate: date
+      endDate: new Date(date)
     });
   }
 
-  handleText(text){
-    this.setState({title: text})
+  handleText(event) {
+    this.setState({ title: event.target.value });
   }
 
   add(event) {
     event.preventDefault();
-    console.log(this.state.title);
-    console.log(this.state.endDate);
-    const data = this.state.endDate;
+    const data = { endDate: this.state.endDate, title: this.state.title };
     this.props.callback(data);
   }
 
   render() {
     return (
       <div className="addCounterForm">
-        <Form  onSubmit={this.add}>
+        <Form onSubmit={this.add.bind(this)}>
           <Form.Group>
             <Form.Control
               id="eventNameForm"
               type="text"
+              value = {this.state.title}
               onChange={this.handleText.bind(this)}
               placeholder="Event name"
             />
