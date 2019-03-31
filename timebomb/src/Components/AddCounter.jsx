@@ -36,6 +36,7 @@ export default class AddCounter extends Component {
 
   render() {
     return (
+      <div><h1>Create Countdown</h1>
       <div className="addCounterForm">
         <Form  onSubmit={this.add}>
           <Form.Group>
@@ -61,6 +62,7 @@ export default class AddCounter extends Component {
           dateFormat="MMMM d, yyyy h:mm aa"
         />
         <Button id="formButton" type="submit" variant="secondary">Create Countdown</Button>
+      </div>
       </div>
     );
   }
