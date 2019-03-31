@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import AddC from './Components/AddCounter';
+import AddC from './components/AddCounter';
 import logo from "./logo.svg";
-import HomePage from "./Components/HomePage";
-import Countdown from "./Components/Countdown";
+import HomePage from "./components/HomePage";
+import Countdown from "./components/Countdown";
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
