@@ -75,7 +75,6 @@
 
 #formButton{
   width: 300px;
-  background-color: black;
   border: none;
 }
 
@@ -83,3 +82,4 @@
   color: black !important;
   background-color: transparent !important;
 }
+

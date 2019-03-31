@@ -36,7 +36,6 @@ export default class AddCounter extends Component {
 
   render() {
     return (
-      <div><h1>Add Countdown</h1>
       <div className="addCounterForm">
         <Form  onSubmit={this.add}>
           <Form.Group>
@@ -47,23 +46,6 @@ export default class AddCounter extends Component {
               placeholder="Event name"
             />
           </Form.Group>
-
-          <DatePicker
-            id="dateForm"
-            selected={this.state.endDate}
-            onChange={this.handleChange}
-            timeInputLabel="Time:"
-            showTimeInput
-            timeIntervals={30}
-            isClearable={true}
-            withPortal
-            timeCaption="Time"
-            placeholderText="Click to select a date"
-            dateFormat="MMMM d, yyyy h:mm aa"
-          />
-          <Button id="formButton" type="submit" variant="light" block>
-            Create Countdown
-          </Button>
         </Form>
         <DatePicker
           id="dateForm"
@@ -78,8 +60,7 @@ export default class AddCounter extends Component {
           timeCaption="Time"
           dateFormat="MMMM d, yyyy h:mm aa"
         />
-        <Button id="formButton" type="submit">Add</Button>
-      </div>
+        <Button id="formButton" type="submit" variant="secondary">Create Countdown</Button>
       </div>
     );
   }
