@@ -21,7 +21,8 @@ export default class HomePage extends Component {
 
   receiveAddCounterCallback(data) {
     console.log(data.title);
-    this.state.counters.push(<Countdown title={data.title} endDate={data.endDate} />);
+    var array = this.state.counter.push(<Countdown title={data.title} endDate={data.endDate} />);
+    this.setState({counters: array});
     console.log(this.state.counters);
   }
 

@@ -63,7 +63,6 @@ export default class Countdown extends Component {
 
             </Card>
           <h2>{this.props.title} in</h2>
-          {console.log(this.state.timeLeft)}
           <h3>{this.state.timeLeft}</h3>
         </Container>
       </div>
