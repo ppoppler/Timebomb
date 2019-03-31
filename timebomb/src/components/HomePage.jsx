@@ -38,7 +38,7 @@ export default class HomePage extends Component {
       case "home":
         return (
           <div>
-            <Countdown title="BeachHacks" endDate={new Date("April 20, 2019 02:30:00")}/>
+            <Countdown title="BeachHacks" endDate={new Date("April 20, 2019 02:30:00")} nightmode={this.state.nightmode}/>
             <Test nightmode={this.state.nightmode} />
           </div>
         )

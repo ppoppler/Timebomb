@@ -30,7 +30,7 @@ export default class Countdown extends Component {
 
   getTimeLeft() {
     var date1 = new Date();
-    var date2 = new Date('December 17, 2019 03:24:00')
+    var date2 = this.props.endDate;
     
 
     var days = inDays(date1, date2);
@@ -61,8 +61,8 @@ export default class Countdown extends Component {
     return (
       <div>
         <Container>
-        <Card bg="dark" text="white" style={{ width: '25rem' }}>
-          <Card.Header><h1>Countdown 1</h1></Card.Header>
+        <Card bg={this.props.nightmode===true ? "dark" : "light"} text={this.props.nightmode===true ? "white" : "black"} style={{ width: '25rem' }}>
+          <Card.Header><h1>{this.props.endDate.toDateString()}</h1></Card.Header>
           <Card.Body>
             <Card.Title><h2>{this.props.title}</h2> in </Card.Title>
             <Card.Text><h3>{this.state.timeLeft}</h3></Card.Text>
