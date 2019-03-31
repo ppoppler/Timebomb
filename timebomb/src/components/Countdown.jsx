@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Card } from "react-bootstrap";
 
 /**
  * Returns a single countdown object. The time will be initially set but using state, the countdown time will change
@@ -13,10 +13,8 @@ export default class Countdown extends Component {
     timeLeft: ""
   };
 
-
-
-  componentDidMount(){
-      setInterval(this.getTimeLeft.bind(this), 1000);
+  componentDidMount() {
+    
   }
 
   /**
@@ -30,8 +28,7 @@ export default class Countdown extends Component {
 
   getTimeLeft() {
     var date1 = new Date();
-    var date2 = new Date('December 17, 2019 03:24:00')
-    
+    var date2 = new Date("April 20, 2019 02:30:00");
 
     var days = inDays(date1, date2);
     var hours = inHours(date1, date2);
@@ -58,41 +55,43 @@ export default class Countdown extends Component {
   }
 
   render() {
+    setInterval(this.getTimeLeft.bind(this), 1000);
     return (
       <div>
         <Container>
-          <h2>{this.props.title}</h2>
-            {console.log(this.state.timeLeft)}
-            <h3>{this.state.timeLeft}</h3>
+            <Card>
+
+            </Card>
+          <h2>{this.props.title} in</h2>
+          {console.log(this.state.timeLeft)}
+          <h3>{this.state.timeLeft}</h3>
         </Container>
       </div>
     );
   }
 }
 
-
-
 function inDays(date1, date2) {
-    var t1 = date1.getTime();
-    var t2 = date2.getTime();
+  var t1 = date1.getTime();
+  var t2 = date2.getTime();
 
-    return parseInt((t2 - t1) / (24 * 3600 * 1000));
-  }
-  function inHours(date1, date2) {
-    var t1 = date1.getTime();
-    var t2 = date2.getTime();
+  return parseInt((t2 - t1) / (24 * 3600 * 1000));
+}
+function inHours(date1, date2) {
+  var t1 = date1.getTime();
+  var t2 = date2.getTime();
 
-    return parseInt((t2 - t1) / (3600 * 1000));
-  }
-  function inMinutes(date1, date2) {
-    var t1 = date1.getTime();
-    var t2 = date2.getTime();
+  return parseInt((t2 - t1) / (3600 * 1000));
+}
+function inMinutes(date1, date2) {
+  var t1 = date1.getTime();
+  var t2 = date2.getTime();
 
-    return parseInt((t2 - t1) / (60 * 1000));
-  }
- function inSeconds(date1, date2) {
-    var t1 = date1.getTime();
-    var t2 = date2.getTime();
+  return parseInt((t2 - t1) / (60 * 1000));
+}
+function inSeconds(date1, date2) {
+  var t1 = date1.getTime();
+  var t2 = date2.getTime();
 
-    return parseInt((t2 - t1) / 1000);
-  }
+  return parseInt((t2 - t1) / 1000);
+}
