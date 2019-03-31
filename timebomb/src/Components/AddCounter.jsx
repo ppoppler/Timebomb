@@ -11,6 +11,7 @@ export default class AddCounter extends Component {
     super(props);
     this.state = {
       endDate: new Date()
+      
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -35,6 +36,7 @@ export default class AddCounter extends Component {
 
   render() {
     return (
+      <div><h1>Add Countdown</h1>
       <div className="addCounterForm">
         <Form  onSubmit={this.add}>
           <Form.Group>
@@ -59,10 +61,11 @@ export default class AddCounter extends Component {
             placeholderText="Click to select a date"
             dateFormat="MMMM d, yyyy h:mm aa"
           />
-          <Button id="formButton" type="submit">
-            Add
+          <Button id="formButton" type="submit" variant="light" block>
+            Create Countdown
           </Button>
         </Form>
+      </div>
       </div>
     );
   }
