@@ -11,33 +11,59 @@ export default class AddCounter extends Component {
     super(props);
     this.state = {
       endDate: new Date()
+      
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(date) {
     this.setState({
-      endDate: date,
+      endDate: date
     });
   }
 
-  add() {
-    const data = this.state;
+  handleText(text){
+    this.setState({title: text})
+  }
+
+  add(event) {
+    event.preventDefault();
+    console.log(this.state.title);
+    console.log(this.state.endDate);
+    const data = this.state.endDate;
     this.props.callback(data);
   }
 
-  render(){
-    return(
+  render() {
+    return (
+      <div><h1>Add Countdown</h1>
       <div className="addCounterForm">
-        <Form onSubmit={this.add.bind(this)}>
+        <Form  onSubmit={this.add}>
           <Form.Group>
             <Form.Control
               id="eventNameForm"
               type="text"
-              value={this.state.title}
+              onChange={this.handleText.bind(this)}
               placeholder="Event name"
             />
           </Form.Group>
+
+          <DatePicker
+            id="dateForm"
+            selected={this.state.endDate}
+            onChange={this.handleChange}
+            timeInputLabel="Time:"
+            showTimeInput
+            timeIntervals={30}
+            isClearable={true}
+            withPortal
+            timeCaption="Time"
+            placeholderText="Click to select a date"
+            dateFormat="MMMM d, yyyy h:mm aa"
+          />
+          <Button id="formButton" type="submit" variant="light" block>
+            Create Countdown
+          </Button>
         </Form>
         <DatePicker
           id="dateForm"
@@ -54,7 +80,7 @@ export default class AddCounter extends Component {
         />
         <Button id="formButton" type="submit">Add</Button>
       </div>
-    )
+      </div>
+    );
   }
-  
 }
