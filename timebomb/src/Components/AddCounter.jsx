@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import '../App.css';
 /**
  * Prompts the user to add another counter
  */
@@ -41,6 +41,7 @@ export default class AddCounter extends Component {
         </Form>
         <DatePicker
           id="dateForm"
+          placeholderText="Click to select a date"
           selected={this.state.endDate}
           onChange={this.handleChange}
           timeInputLabel="Time:"
@@ -49,7 +50,6 @@ export default class AddCounter extends Component {
           isClearable={true}
           withPortal
           timeCaption="Time"
-          placeholderText="Click to select a date"
           dateFormat="MMMM d, yyyy h:mm aa"
         />
         <Button id="formButton" type="submit">Add</Button>
