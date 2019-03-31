@@ -24,14 +24,14 @@ export default class AddCounter extends Component {
 
     render(){
         return(
-            <div>
+            <div className = "addCounterForm">
             <Form>
                 <Form.Group>
-                <Form.Control type="text" placeholder="Event name"/>
+                <Form.Control id="eventNameForm" type="text" placeholder="Event name"/>
                 </Form.Group>
             </Form>
             <DatePicker
-                className = "dateForm"
+                id = "dateForm"
                 selected={this.state.endDate}
                 onChange={this.handleChange}
                 timeInputLabel="Time:"
@@ -43,7 +43,7 @@ export default class AddCounter extends Component {
                 placeholderText="Click to select a date"
                 dateFormat="MMMM d, yyyy h:mm aa"
             />
-            <Button variant="dark" type="submit">
+            <Button id="formButton" type="submit">
             Add
             </Button>
             </div>

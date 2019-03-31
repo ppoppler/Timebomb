@@ -52,3 +52,24 @@
   color:#191919;
 }
 
+#eventNameForm{
+  width: 250px;
+  text-align: center;
+  display: inline-block;
+  margin-top: 250px;
+}
+
+#dateForm{
+  border: 1px solid #ced4da !important;
+  border-radius:5px;
+  padding-left: 20px;
+  padding-right: 20.5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+#formButton{
+  width: 250px;
+  background-color: black;
+}
