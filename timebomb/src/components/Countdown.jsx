@@ -28,15 +28,15 @@ export default class Countdown extends Component {
    var hours = Math.floor((t/(1000*60*60)) % 24);
    var days = Math.floor((t/(1000*60*60*24))); 
     
-    if (days > 1) {
+    if (days >= 1) {
       this.setState({
         timeLeft: `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`
       });
-    } else if (hours > 1) {
+    } else if (hours >= 1) {
       this.setState({
         timeLeft: `${hours} hours, ${minutes} minutes, ${seconds} seconds`
       });
-    } else if (minutes > 1) {
+    } else if (minutes >= 1) {
       this.setState({ timeLeft: `${minutes} minutes, ${seconds} seconds` });
     } else {
       this.setState({ timeLeft: `${seconds} seconds` });
@@ -52,6 +52,7 @@ export default class Countdown extends Component {
       <div>
         <Container>
         <Card bg={this.props.nightmode===true ? "dark" : "light"} text={this.props.nightmode===true ? "white" : "black"} style={{ width: '25rem' }}>
+          {console.log(this.props.endDate)}
           <Card.Header><h1>{this.props.endDate.toDateString()}</h1></Card.Header>
           <Card.Body>
             <Card.Title><h2>{this.props.title}</h2> in </Card.Title>

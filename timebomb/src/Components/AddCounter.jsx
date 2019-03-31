@@ -30,7 +30,7 @@ export default class AddCounter extends Component {
 
   add(event) {
     event.preventDefault();
-    const data = { endDate: new Date(this.state.endDate), title: this.state.title };
+    const data = { endDate: this.state.endDate, title: this.state.title };
     this.props.callback(data);
   }
 

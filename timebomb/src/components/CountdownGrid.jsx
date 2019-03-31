@@ -36,11 +36,14 @@ export default class CountdownGrid extends Component {
           nightmode={this.props.nightmode}
         />
         {this.props.countdowns.map(element => (
-          <Countdown
-            title={element.title}
-            endDate={element.endDate}
-            nightmode={this.props.nightmode}
-          />
+          <div>
+            {console.log(element)}
+            <Countdown
+              title={element.title}
+              endDate={element.endDate}
+              nightmode={this.props.nightmode}
+            />
+          </div>
         ))}
       </div>
     );

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Navbar, Container } from "react-bootstrap";
 import Test from "./Test";
 import Countdown from "./Countdown";
-import CountdownGrid from "./CountdownGrid"
+import CountdownGrid from "./CountdownGrid";
 import AddCounter from "./AddCounter";
 import clock from "../img/clock_icon.png";
 import setting from "../img/settings_icon.png";
@@ -17,14 +17,20 @@ export default class HomePage extends Component {
   state = {
     nightmode: true,
     page: "home",
-    counters: []
+    counters: [
+      { title: "BeachHacks", endDate: new Date("April 20, 2019 02:30:00") },
+      { title: "Mexico Cruise", endDate: new Date("April 1, 2019 14:30:00")}
+    ]
   };
 
   receiveAddCounterCallback(data) {
     console.log(data);
+    console.log(`endDate: ${data.endDate}`);
     var array = this.state.counters;
-    array.push(<Countdown title={data.title} endDate={data.endDate} />);
-    this.setState({counters: array});
+    array.push(
+      <Countdown title={data.title} endDate={data.endDate.toDateString()} />
+    );
+    this.setState({ counters: array });
     console.log(this.state.counters);
   }
 
@@ -40,12 +46,25 @@ export default class HomePage extends Component {
       case "home":
         return (
           <div>
-            <CountdownGrid nightmode={this.state.nightmode} countdowns={this.state.counters}/>
+            {/* <CountdownGrid nightmode={this.state.nightmode} countdowns={this.state.counters}/>
+             */}
+            {this.state.counters.map(element => (
+              <div>
+                {console.log(element)}
+                <Countdown
+                  title={element.title}
+                  endDate={element.endDate}
+                  nightmode={this.state.nightmode}
+                />
+              </div>
+            ))}
             <Test nightmode={this.state.nightmode} />
           </div>
-        )
+        );
       case "countdownGrid":
-        return <AddCounter callback={this.receiveAddCounterCallback.bind(this)}/>;
+        return (
+          <AddCounter callback={this.receiveAddCounterCallback.bind(this)} />
+        );
       default:
         return <Test nightmode={this.state.nightmode} />;
     }
