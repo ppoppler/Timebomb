@@ -90,7 +90,7 @@ export default class HomePage extends Component {
   render() {
     return (
       <div className={this.state.nightmode ? "dark home" : "light home"}>
-        <Navbar transparent fixed="top" expand="lg">
+        <Navbar transparent="true" fixed="top" expand="lg">
           <Navbar.Collapse className="justify-content-end">
             {this.state.page === "home" ? (
               <a>

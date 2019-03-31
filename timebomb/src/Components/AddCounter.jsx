@@ -57,6 +57,8 @@ export default class AddCounter extends Component {
               onChange={this.handleChange}
               timeInputLabel="Time:"
               showTimeInput
+              minDate={new Date()}
+              showDisabledMonthNavigation
               timeIntervals={30}
               isClearable={true}
               withPortal
