@@ -37,7 +37,6 @@ export default class AddCounter extends Component {
   render() {
     return (
       <div>
-        <h1>Create Countdown</h1>
         <div className="addCounterForm">
           <Form onSubmit={this.add.bind(this)}>
             <Form.Group>
