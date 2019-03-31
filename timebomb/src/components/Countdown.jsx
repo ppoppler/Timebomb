@@ -29,6 +29,8 @@ export default class Countdown extends Component {
    */
 
   getTimeLeft() {
+
+    /** 
     var date1 = new Date();
     var date2 = new Date('December 17, 2019 03:24:00')
     
@@ -37,17 +39,27 @@ export default class Countdown extends Component {
     var hours = inHours(date1, date2);
     var minutes = inMinutes(date1, date2);
     var seconds = inSeconds(date1, date2);
+    */
 
+   var date1 = new Date().getTime();
+   var date2 = new Date('April 20, 2019 14:00:00').getTime();
+
+   var t = parseInt(date2 - date1);
+   var seconds = Math.floor((t/1000) % 60);
+   var minutes = Math.floor((t/1000/60) % 60);
+   var hours = Math.floor((t/(1000*60*60)) % 24);
+   var days = Math.floor((t/(1000*60*60*24))); 
+    
     if (days > 1) {
       this.setState({
-        timeLeft: `${days} days | ${hours} hours | ${minutes} minutes | ${seconds} seconds`
+        timeLeft: `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`
       });
     } else if (hours > 1) {
       this.setState({
-        timeLeft: `${hours} hours | ${minutes} minutes | ${seconds} seconds`
+        timeLeft: `${hours} hours, ${minutes} minutes, ${seconds} seconds`
       });
     } else if (minutes > 1) {
-      this.setState({ timeLeft: `${minutes} minutes | ${seconds} seconds` });
+      this.setState({ timeLeft: `${minutes} minutes, ${seconds} seconds` });
     } else {
       this.setState({ timeLeft: `${seconds} seconds` });
     }
