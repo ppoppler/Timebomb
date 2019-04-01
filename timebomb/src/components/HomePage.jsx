@@ -33,6 +33,7 @@ export default class HomePage extends Component {
   toggleClass() {
     const currentState = this.state.nightmode;
     this.setState({ nightmode: !currentState });
+    console.log(this.state.counters);
   }
 
   renderPage() {
@@ -40,8 +41,6 @@ export default class HomePage extends Component {
       case "home":
         return (
           <div>
-            {/* <CountdownGrid nightmode={this.state.nightmode} countdowns={this.state.counters}/>
-             */}
             {this.state.counters.map(element => (
               <div>
                 <Countdown

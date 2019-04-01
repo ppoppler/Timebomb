@@ -18,11 +18,6 @@ export default class Countdown extends Component {
       setInterval(this.getTimeLeft.bind(this), 1000);
   }
 
-  toggleClass() {
-    const currentState = this.state.nightmode;
-    this.setState({ nightmode: !currentState });
-  }
-
   getTimeLeft(props) {
 
    var date1 = new Date().getTime();
@@ -52,11 +47,12 @@ export default class Countdown extends Component {
     // }
   }
 
+
   render() {
     return (
       <div>
         <Container>
-        <Card bg={this.state.nightmode===true ? "dark" : "light"} text={this.props.nightmode===true ? "white" : "black"} style={{ width: '50rem' }}>
+        <Card bg={this.state.nightmode===true ? "dark" : "light"}  style={{ width: '50rem' }}>
           <Card.Body>
             <Card.Title><h2>{this.state.title} </h2> in </Card.Title>
             <Card.Text><h3>{this.state.timeLeft}</h3></Card.Text>
